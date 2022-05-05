@@ -1,7 +1,7 @@
 import GameCards from "./GameCards";
 import ScoreAndMatches from "./ScoreAndMatches";
 import background from "../../assets/images/bg.webp";
-import Hamburger from "./Hamburger";
+import Navbar from "./Navbar";
 
 const MainSection = (props) => {
   return (
@@ -12,7 +12,7 @@ const MainSection = (props) => {
         className="w-full m-auto scale-[3.5]"
       />
       <div className="absolute top-0 right-0 left-0 bottom-0 bg-transparent">
-        <Hamburger />
+        <Navbar />
         <ScoreAndMatches />
         <GameCards />
       </div>
