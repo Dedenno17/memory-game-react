@@ -1,11 +1,11 @@
-import GameCard from "./GameCard";
+import GameCards from "./GameCards";
 import ScoreAndMatches from "./ScoreAndMatches";
 
 const MainSection = (props) => {
   return (
     <div>
       <ScoreAndMatches />
-      <GameCard />
+      <GameCards />
     </div>
   );
 };
