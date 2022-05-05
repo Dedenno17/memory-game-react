@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .preserve {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  #a-card.open {
+    @apply rotate-180;
+  }
+}
