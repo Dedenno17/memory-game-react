@@ -1,14 +1,16 @@
+import MediaCard from "../UI/MediaCard";
+
 const ScoreAndMatches = (props) => {
   return (
-    <div className="w-full flex justify-evenly items-center pt-5 pb-8 bg-red-500">
-      <div>
-        <h2>Mathces</h2>
-        <p>2</p>
-      </div>
-      <div>
-        <h2>Score</h2>
-        <p>2</p>
-      </div>
+    <div className="w-full flex justify-evenly items-center pt-5 pb-8">
+      <MediaCard className="p-4 text-lg text-center">
+        <h2 className="font-semibold">Mathces</h2>
+        <p className="font-bold">2</p>
+      </MediaCard>
+      <MediaCard className="py-4 px-7 text-lg text-center">
+        <h2 className="font-semibold">Score</h2>
+        <p className="font-bold">2</p>
+      </MediaCard>
     </div>
   );
 };
