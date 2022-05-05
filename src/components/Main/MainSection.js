@@ -4,7 +4,7 @@ import background from "../../assets/images/bg.webp";
 
 const MainSection = (props) => {
   return (
-    <div className="w-full h-[100vh] relative bg-red-400 flex">
+    <div className="w-full h-[100vh] relative flex">
       <img
         src={background}
         alt="background nature"
