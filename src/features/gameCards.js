@@ -31,7 +31,7 @@ const initialStateValue = [
 
 export const gameCardsSlice = createSlice({
   name: "gameCards",
-  initialState: { gameCrads: initialStateValue },
+  initialState: { gameCards: initialStateValue },
   reducers: {
     shuffleCards: (state) => {
       const newGameCards = state.gameCrads.sort(() => Math.random() - 0.5);
