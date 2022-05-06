@@ -1,13 +1,24 @@
 import { createPortal } from "react-dom";
+import { useDispatch } from "react-redux";
+import { setIsShowModalNav } from "../../features/isShowModalNav";
 
 const ModalBackground = () => {
+  const dispatch = useDispatch();
+
+  const hideModalNavHandler = () => {
+    dispatch(setIsShowModalNav(false));
+  };
+
   return (
-    <div className="bg-gradient-to-b from-slate-800 to-transparent fixed top-0 left-0 right-0 bottom-0"></div>
+    <div
+      className="bg-gradient-to-b from-slate-800 to-transparent fixed top-0 left-0 right-0 bottom-0"
+      onClick={hideModalNavHandler}
+    ></div>
   );
 };
 
 const ModalContent = (props) => {
-  const classes = `${props.className} w-3/4 fixed top-10 left-[50%] translate-x-[-50%] rounded-lg shadow-lg`;
+  const classes = `${props.className} w-3/4 fixed top-2 opacity-0 left-[50%] translate-x-[-50%] rounded-lg shadow-lg animate-goDown`;
 
   return <div className={classes}>{props.children}</div>;
 };
