@@ -16,6 +16,6 @@
   }
 
   #a-card.open {
-    @apply rotate-180;
+    transform: rotateY(180deg);
   }
 }

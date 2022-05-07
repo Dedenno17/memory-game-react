@@ -1,11 +1,22 @@
+import { useState } from "react";
+
 import bgCard from "../../assets/images/back.jpg";
 
 const ACard = (props) => {
+  const [hasOpened, setHasOpened] = useState(false);
+
+  const clickHandler = () => {
+    setHasOpened(true);
+  };
+
   return (
     <div
       name={props.name}
       id="a-card"
-      className="relative w-full bg-[rgba(255,255,255,0.5)] backdrop-blur-lg preserve cursor-pointer transition-all duration-700 ease-in-out"
+      onClick={clickHandler}
+      className={`relative w-full bg-[rgba(255,255,255,0.5)] preserve cursor-pointer transition-all duration-700 ease-in-out ${
+        hasOpened ? "open" : ""
+      }`}
     >
       <img
         src={props.img}
