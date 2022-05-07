@@ -16,7 +16,7 @@ const MainSection = (props) => {
       <div className="absolute top-16 right-0 left-0 bottom-0 bg-transparent sm:bg-red-300 md:bg-green-300 lg:bg-yellow-400 lg:flex lg:justify-center lg:top-0 xl:bg-blue-500">
         <Navbar />
         <ScoreAndMatches />
-        <div className="hidden lg:flex lg:w-[20%] lg:flex-col lg:justify-between lg:items-center lg:p-4">
+        <div className="hidden lg:flex lg:w-[20%] lg:flex-col lg:justify-between lg:items-center lg:p-4 xl:w-[15%]">
           <Matches className="w-full h-24 p-3 text-center text-3xl text-white" />
           <button
             type="button"
@@ -26,7 +26,7 @@ const MainSection = (props) => {
           </button>
         </div>
         <GameCards />
-        <div className="hidden lg:flex lg:w-[20%] lg:flex-col lg:justify-between lg:items-center lg:p-4">
+        <div className="hidden lg:flex lg:w-[20%] lg:flex-col lg:justify-between lg:items-center lg:p-4 xl:w-[15%]">
           <Scores className="w-full h-24 p-3 text-center text-3xl text-white" />
           <button
             type="button"
