@@ -10,7 +10,7 @@ const Hamburger = (props) => {
 
   return (
     <div className="w-8 h-7" onClick={showModalNavHandler}>
-      <div className="w-full h-full flex flex-col justify-between">
+      <div className="w-full h-full flex flex-col justify-between cursor-pointer">
         <span className="block w-full h-[5px] bg-primaryGreen"></span>
         <span className="block w-full h-[5px] bg-primaryGreen"></span>
         <span className="block w-full h-[5px] bg-primaryGreen"></span>
