@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setHasOpened } from "../../features/gameCards";
+import { shuffleCards } from "../../features/gameCards";
 import { incrementScores } from "../../features/score";
 import { incrementMatches } from "../../features/matches";
 import ACard from "./ACard";
@@ -67,6 +68,11 @@ const GameCards = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasClickedCards, cardToMatch]);
+
+  useEffect(() => {
+    dispatch(shuffleCards());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="container mx-auto w-full h-[65vh] grid grid-cols-4 grid-rows-4 bg-[rgba(0,0,0,0.3)] backdrop-blur-lg perspective-2000 lg:max-w-[60%] lg:h-[100vh] lg:px-3 xl:w-[70%]">
