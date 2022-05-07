@@ -21,6 +21,7 @@ const MainSection = (props) => {
           <button
             type="button"
             className="lg:w-full lg:px-4 lg:py-2 outline-none rounded-lg shadow-lg text-white bg-primaryGreen text-xl active:scale-95"
+            onClick={() => props.onReset()}
           >
             Reset
           </button>
