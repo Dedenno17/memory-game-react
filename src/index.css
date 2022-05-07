@@ -15,7 +15,7 @@
     perspective: 2000px;
   }
 
-  #a-card.open {
+  .open {
     transform: rotateY(180deg);
   }
 }

@@ -1,21 +1,27 @@
-import { useState } from "react";
-
+import { useSelector } from "react-redux";
 import bgCard from "../../assets/images/back.jpg";
 
 const ACard = (props) => {
-  const [hasOpened, setHasOpened] = useState(false);
+  const gameCards = useSelector((state) => state.gameCards.gameCards);
 
-  const clickHandler = () => {
-    setHasOpened(true);
+  const clickHandler = (cardName, index) => {
+    if (props.hasClickedCards >= 2) {
+      console.log("stop");
+      return;
+    }
+
+    props.onChangeClickedCards();
+    props.onChangeCardToMatch(cardName);
+    props.onOpenCard(index);
+    console.log(gameCards[props.id].hasOpened);
   };
 
   return (
     <div
-      name={props.name}
-      id="a-card"
-      onClick={clickHandler}
+      id={props.id}
+      onClick={() => clickHandler(props.name, props.id)}
       className={`relative w-full bg-[rgba(255,255,255,0.5)] preserve cursor-pointer transition-all duration-700 ease-in-out ${
-        hasOpened ? "open" : ""
+        props.hasOpened ? "open" : ""
       }`}
     >
       <img

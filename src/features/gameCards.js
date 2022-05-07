@@ -11,22 +11,22 @@ import pig from "../assets/images/pig.png";
 import wolf from "../assets/images/wolf.png";
 
 const initialStateValue = [
-  { img: bee, name: "bee" },
-  { img: bee, name: "bee" },
-  { img: cat, name: "cat" },
-  { img: cat, name: "cat" },
-  { img: dog, name: "dog" },
-  { img: dog, name: "dog" },
-  { img: fox, name: "fox" },
-  { img: fox, name: "fox" },
-  { img: frog, name: "frog" },
-  { img: frog, name: "frog" },
-  { img: monkey, name: "monkey" },
-  { img: monkey, name: "monkey" },
-  { img: pig, name: "pig" },
-  { img: pig, name: "pig" },
-  { img: wolf, name: "wolf" },
-  { img: wolf, name: "wolf" },
+  { img: bee, name: "bee", hasOpened: false },
+  { img: bee, name: "bee", hasOpened: false },
+  { img: cat, name: "cat", hasOpened: false },
+  { img: cat, name: "cat", hasOpened: false },
+  { img: dog, name: "dog", hasOpened: false },
+  { img: dog, name: "dog", hasOpened: false },
+  { img: fox, name: "fox", hasOpened: false },
+  { img: fox, name: "fox", hasOpened: false },
+  { img: frog, name: "frog", hasOpened: false },
+  { img: frog, name: "frog", hasOpened: false },
+  { img: monkey, name: "monkey", hasOpened: false },
+  { img: monkey, name: "monkey", hasOpened: false },
+  { img: pig, name: "pig", hasOpened: false },
+  { img: pig, name: "pig", hasOpened: false },
+  { img: wolf, name: "wolf", hasOpened: false },
+  { img: wolf, name: "wolf", hasOpened: false },
 ];
 
 export const gameCardsSlice = createSlice({
@@ -37,9 +37,15 @@ export const gameCardsSlice = createSlice({
       const newGameCards = state.gameCrads.sort(() => Math.random() - 0.5);
       state.gameCrads = newGameCards;
     },
+    setHasOpened: (state, action) => {
+      const newState = [...state.gameCards];
+      newState[action.payload.index].hasOpened = action.payload.hasOpened;
+
+      state.gameCards = newState;
+    },
   },
 });
 
-export const { shuffleCards } = gameCardsSlice.actions;
+export const { shuffleCards, setHasOpened } = gameCardsSlice.actions;
 
 export default gameCardsSlice.reducer;
