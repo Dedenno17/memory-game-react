@@ -3,7 +3,9 @@ import ModalCard from "../UI/ModalCard";
 const ModalStart = (props) => {
   return (
     <ModalCard className="py-5 px-3 bg-slate-200">
-      <h1 className="text-xl text-center font-bold">Rule Of the Game</h1>
+      <h1 className="text-xl text-slate-800 text-center font-bold">
+        Rule Of the Game
+      </h1>
       <div className="mt-2 border-t-primaryGreen border-t-2 p-5 text-center">
         <p className="text-md text-slate-800">
           You have{" "}
