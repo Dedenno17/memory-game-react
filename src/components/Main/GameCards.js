@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setHasOpened } from "../../features/gameCards";
+import { setScores } from "../../features/score";
+import { setMatches } from "../../features/matches";
 import ACard from "./ACard";
 
 const GameCards = () => {
@@ -39,12 +41,21 @@ const GameCards = () => {
     const timeOut = setTimeout(() => {
       if (hasClickedCards === 2) {
         console.log(cardToMatch);
+
+        if (cardToMatch[0] === cardToMatch[1]) {
+          dispatch(setMatches());
+          dispatch(setScores());
+          setHasClickedCards(null);
+          setCardToMatch([]);
+        }
       }
     }, 700);
 
     return () => {
       clearTimeout(timeOut);
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasClickedCards, cardToMatch]);
 
   return (

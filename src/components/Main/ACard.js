@@ -1,9 +1,6 @@
-import { useSelector } from "react-redux";
 import bgCard from "../../assets/images/back.jpg";
 
 const ACard = (props) => {
-  const gameCards = useSelector((state) => state.gameCards.gameCards);
-
   const clickHandler = (cardName, index) => {
     if (props.hasClickedCards >= 2) {
       console.log("stop");
@@ -13,7 +10,6 @@ const ACard = (props) => {
     props.onChangeClickedCards();
     props.onChangeCardToMatch(cardName);
     props.onOpenCard(index);
-    console.log(gameCards[props.id].hasOpened);
   };
 
   return (
