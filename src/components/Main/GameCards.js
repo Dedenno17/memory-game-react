@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setHasOpened } from "../../features/gameCards";
-import { setScores } from "../../features/score";
-import { setMatches } from "../../features/matches";
+import { incrementScores } from "../../features/score";
+import { incrementMatches } from "../../features/matches";
 import ACard from "./ACard";
 
 const GameCards = () => {
@@ -42,8 +42,8 @@ const GameCards = () => {
     const timeOut = setTimeout(() => {
       if (hasClickedCards === 2) {
         if (cardToMatch[0].name === cardToMatch[1].name) {
-          dispatch(setMatches());
-          dispatch(setScores());
+          dispatch(incrementMatches());
+          dispatch(incrementScores());
           setHasClickedCards(null);
           setCardToMatch([]);
         }

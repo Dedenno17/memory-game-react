@@ -6,12 +6,15 @@ export const mathcesSlice = createSlice({
   name: "matches",
   initialState: { matches: initialStateValue },
   reducers: {
-    setMatches: (state) => {
+    incrementMatches: (state) => {
       state.matches += 1;
+    },
+    resetMatches: (state) => {
+      state.matches = initialStateValue;
     },
   },
 });
 
-export const { setMatches } = mathcesSlice.actions;
+export const { incrementMatches, resetMatches } = mathcesSlice.actions;
 
 export default mathcesSlice.reducer;

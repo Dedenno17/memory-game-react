@@ -34,8 +34,18 @@ export const gameCardsSlice = createSlice({
   initialState: { gameCards: initialStateValue },
   reducers: {
     shuffleCards: (state) => {
-      const newGameCards = state.gameCrads.sort(() => Math.random() - 0.5);
-      state.gameCrads = newGameCards;
+      const newGameCards = [...state.gameCards];
+      newGameCards.sort(() => Math.random() - 0.5);
+
+      state.gameCards = newGameCards;
+    },
+    resetCards: (state) => {
+      const newGameCards = [...state.gameCards];
+      for (let i = 0; i < newGameCards.length - 1; i++) {
+        newGameCards[i].hasOpened = false;
+      }
+
+      state.gameCards = newGameCards;
     },
     setHasOpened: (state, action) => {
       const newState = [...state.gameCards];
@@ -46,6 +56,7 @@ export const gameCardsSlice = createSlice({
   },
 });
 
-export const { shuffleCards, setHasOpened } = gameCardsSlice.actions;
+export const { shuffleCards, resetCards, setHasOpened } =
+  gameCardsSlice.actions;
 
 export default gameCardsSlice.reducer;
