@@ -13,7 +13,7 @@ const MainSection = (props) => {
         alt="background nature"
         className="w-full m-auto scale-[3.5] sm:scale-[3] md:scale-[2] lg:scale-[1.5] xl:scale-[1]"
       />
-      <div className="absolute top-16 right-0 left-0 bottom-0 bg-transparent lg:flex lg:justify-center lg:top-0">
+      <div className="absolute top-20 right-0 left-0 bottom-0 bg-transparent lg:flex lg:justify-center lg:top-0">
         <Navbar />
         <ScoreAndMatches />
         <div className="hidden lg:flex lg:w-[20%] lg:flex-col lg:justify-between lg:items-center lg:p-4 xl:w-[15%]">
