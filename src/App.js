@@ -6,12 +6,14 @@ import { useDispatch } from "react-redux";
 import MainSection from "./components/Main/MainSection";
 import ModalNav from "./components/Main/ModalNav";
 import ModalStart from "./components/Main/ModalStart";
+import ModalTime from "./components/Main/ModalTime";
 import { resetCards } from "./features/gameCards";
 import { shuffleCards } from "./features/gameCards";
 import { setIsShowModalNav } from "./features/isShowModalNav";
 import { resetMatches } from "./features/matches";
 import { resetScores } from "./features/score";
 import { setIsShowModalStart } from "./features/isShowModalStart";
+import { setIsShowModalTime } from "./features/isShowModalTime";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +24,10 @@ function App() {
 
   const isShowModalStart = useSelector(
     (state) => state.isShowModalStart.isShowModalStart
+  );
+
+  const isShowModalTime = useSelector(
+    (state) => state.isShowModalTime.isShowModalTime
   );
 
   const resetHandler = () => {
@@ -38,6 +44,7 @@ function App() {
 
   const hideModalStartHandler = () => {
     dispatch(setIsShowModalStart(false));
+    dispatch(setIsShowModalTime(true));
   };
 
   useEffect(() => {
@@ -48,6 +55,7 @@ function App() {
   return (
     <div className="App">
       <MainSection onReset={resetHandler} />
+      {isShowModalTime && <ModalTime />}
       {isShowModalNav && <ModalNav onReset={resetHandler} />}
       {isShowModalStart && <ModalStart onHide={hideModalStartHandler} />}
     </div>

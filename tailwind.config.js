@@ -7,10 +7,14 @@ module.exports = {
       },
       animation: {
         goDown: "goDown .5s ease-in-out forwards",
+        goDownTime: "goDownTime .3s ease-in-out forwards",
       },
       keyframes: {
         goDown: {
           "100%": { top: "40px", opacity: 1 },
+        },
+        goDownTime: {
+          "100%": { top: "12px" },
         },
       },
     },
