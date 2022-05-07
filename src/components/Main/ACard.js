@@ -8,7 +8,7 @@ const ACard = (props) => {
     }
 
     props.onChangeClickedCards();
-    props.onChangeCardToMatch(cardName);
+    props.onChangeCardToMatch(cardName, index);
     props.onOpenCard(index);
   };
 

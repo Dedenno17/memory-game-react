@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setHasOpened } from "../../features/gameCards";
@@ -24,8 +24,9 @@ const GameCards = () => {
     });
   };
 
-  const changeCardToMatch = (cardName) => {
-    setCardToMatch((prevState) => [...prevState, cardName]);
+  const changeCardToMatch = (cardName, index) => {
+    const newState = { name: cardName, index };
+    setCardToMatch((prevState) => [...prevState, newState]);
   };
 
   const openCardHandler = (index) => {
@@ -40,13 +41,22 @@ const GameCards = () => {
   useEffect(() => {
     const timeOut = setTimeout(() => {
       if (hasClickedCards === 2) {
-        console.log(cardToMatch);
-
-        if (cardToMatch[0] === cardToMatch[1]) {
+        if (cardToMatch[0].name === cardToMatch[1].name) {
           dispatch(setMatches());
           dispatch(setScores());
           setHasClickedCards(null);
           setCardToMatch([]);
+        }
+
+        if (cardToMatch[0].name !== cardToMatch[1].name) {
+          setHasClickedCards(null);
+          setCardToMatch([]);
+          dispatch(
+            setHasOpened({ index: cardToMatch[0].index, hasOpened: false })
+          );
+          dispatch(
+            setHasOpened({ index: cardToMatch[1].index, hasOpened: false })
+          );
         }
       }
     }, 700);
@@ -71,6 +81,7 @@ const GameCards = () => {
           onChangeCardToMatch={changeCardToMatch}
           onOpenCard={openCardHandler}
           hasClickedCards={hasClickedCards}
+          cardToMatch={cardToMatch}
         />
       ))}
     </div>
