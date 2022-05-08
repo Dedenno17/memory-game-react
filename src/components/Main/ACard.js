@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import bgCard from "../../assets/images/back.jpg";
 
 const ACard = (props) => {
+  const limit = useSelector((state) => state.limit.limit);
+
   const clickHandler = (cardName, index) => {
     if (props.hasClickedCards >= 2) {
       console.log("stop");
@@ -17,8 +20,8 @@ const ACard = (props) => {
       id={props.id}
       onClick={() => clickHandler(props.name, props.id)}
       className={`relative w-full bg-[rgba(255,255,255,0.5)] preserve cursor-pointer transition-all duration-700 ease-in-out ${
-        props.hasOpened ? "open" : ""
-      }`}
+        limit <= 0 ? "pointer-events-none" : ""
+      } ${props.hasOpened ? "open" : ""}`}
     >
       <img
         src={props.img}
