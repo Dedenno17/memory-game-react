@@ -9,6 +9,7 @@ import isShowModalStartReducer from "../features/isShowModalStart";
 import isShowModalTimeReducer from "../features/isShowModalTime";
 import limitReducer from "../features/limit";
 import rememberReducer from "../features/remember";
+import resultReducer from "../features/result";
 
 export const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ export const store = configureStore({
     limit: limitReducer,
     matches: matchesReducer,
     remember: rememberReducer,
+    result: resultReducer,
     scores: scoresReducer,
   },
 });
