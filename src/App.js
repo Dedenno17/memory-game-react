@@ -7,7 +7,7 @@ import MainSection from "./components/Main/MainSection";
 import ModalNav from "./components/Main/ModalNav";
 import ModalStart from "./components/Main/ModalStart";
 import ModalTime from "./components/Main/ModalTime";
-import { resetCards } from "./features/gameCards";
+import { openAllCards, resetCards } from "./features/gameCards";
 import { shuffleCards } from "./features/gameCards";
 import { setIsShowModalNav } from "./features/isShowModalNav";
 import { resetMatches } from "./features/matches";
@@ -44,6 +44,7 @@ function App() {
 
   const hideModalStartHandler = () => {
     dispatch(setIsShowModalStart(false));
+    dispatch(openAllCards());
     dispatch(setIsShowModalTime(true));
   };
 

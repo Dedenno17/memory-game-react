@@ -10,8 +10,12 @@ const ModalStart = (props) => {
         <p className="text-md text-slate-800">
           You have{" "}
           <span className="text-lg text-red-500 font-bold">60 seconds</span> to
-          match all the cards. Click the card you want to match and see if your
-          choice is right!!
+          match all the cards. Before that, You will be given{" "}
+          <span className="text-md text-primaryGreen font-bold">
+            10 seconds
+          </span>{" "}
+          to remember the place of the card Click the card you want to match and
+          see if your choice is right!!
         </p>
         <button
           type="button"
