@@ -11,14 +11,14 @@ const ModalBackground = () => {
 
   return (
     <div
-      className="bg-gradient-to-b from-slate-800 to-transparent fixed top-0 left-0 right-0 bottom-0"
+      className="bg-gradient-to-b from-slate-800 to-transparent fixed top-0 left-0 right-0 bottom-0 z-40"
       onClick={hideModalNavHandler}
     ></div>
   );
 };
 
 const ModalContent = (props) => {
-  const classes = `${props.className} w-3/4 fixed top-2 opacity-0 left-[50%] translate-x-[-50%] rounded-lg shadow-lg animate-goDown`;
+  const classes = `${props.className} w-3/4 fixed top-2 opacity-0 left-[50%] translate-x-[-50%] rounded-lg shadow-lg z-50 animate-goDown`;
 
   return <div className={classes}>{props.children}</div>;
 };
