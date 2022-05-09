@@ -14,7 +14,7 @@ const ModalWin = (props) => {
         <img
           src={elephant}
           alt="astronout unicorn playing ukulele"
-          className="w-[50%] md:w-[30%] lg:w-[20%]"
+          className="w-[50%] md:w-[30%] lg:w-[20%] xl:w-[30%]"
         />
       </div>
       <div className="w-full flex justify-evenly">

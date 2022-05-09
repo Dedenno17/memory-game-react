@@ -48,7 +48,7 @@ const ModalTime = (props) => {
   }, [limit, remember]);
 
   return createPortal(
-    <div className="rounded-lg shadow-lg bg-slate-200 px-8 py-4 absolute -top-20 left-1/2 -translate-x-1/2 z-30 animate-goDownTime">
+    <div className="rounded-lg shadow-lg bg-slate-200 px-8 py-4 absolute -top-20 left-1/2 -translate-x-1/2 z-30 animate-goDownTime lg:-left-20 lg:top-1/2 lg:-translate-y-1/2 lg:animate-goRightTime xl:px-16">
       {remember > 0 && (
         <p className="text-2xl text-primaryGreen font-bold">{remember}</p>
       )}

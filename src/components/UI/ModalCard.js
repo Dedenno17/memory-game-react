@@ -18,7 +18,7 @@ const ModalBackground = () => {
 };
 
 const ModalContent = (props) => {
-  const classes = `${props.className} w-3/4 fixed top-2 opacity-0 left-[50%] translate-x-[-50%] rounded-lg shadow-lg z-50 animate-goDown`;
+  const classes = `${props.className} w-3/4 fixed top-2 opacity-0 left-[50%] translate-x-[-50%] rounded-lg shadow-lg z-50 animate-goDown sm:w-1/2 lg:w-[40%] xl:w-[30%]`;
 
   return <div className={classes}>{props.children}</div>;
 };
