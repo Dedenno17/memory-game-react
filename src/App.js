@@ -20,6 +20,7 @@ import { setIsShowModalTime } from "./features/isShowModalTime";
 import { resetRemember } from "./features/remember";
 import { resetLimit } from "./features/limit";
 import { setResult } from "./features/result";
+import OpeningSection from "./components/Opening/OpeningSection";
 
 function App() {
   const dispatch = useDispatch();
@@ -72,11 +73,12 @@ function App() {
 
   return (
     <div className="App">
-      <MainSection onReset={resetHandler} />
-      {isShowModalTime && <ModalTime />}
+      <OpeningSection />
+      {/* <MainSection onReset={resetHandler} /> */}
+      {/* {isShowModalTime && <ModalTime />}
       {isShowModalNav && <ModalNav onReset={resetHandler} />}
       {isWin && <ModalWin onReset={resetHandler} />}
-      {isShowModalStart && <ModalStart onHide={hideModalStartHandler} />}
+      {isShowModalStart && <ModalStart onHide={hideModalStartHandler} />} */}
     </div>
   );
 }
