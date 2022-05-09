@@ -6,10 +6,12 @@ import { setIsShowModalTime } from "../../features/isShowModalTime";
 
 import { setLimit } from "../../features/limit";
 import { setRemember } from "../../features/remember";
+import { setResult } from "../../features/result";
 
 const ModalTime = (props) => {
   const limit = useSelector((state) => state.limit.limit);
   const remember = useSelector((state) => state.remember.remember);
+  const matches = useSelector((state) => state.matches.matches);
 
   const dispatch = useDispatch();
 
@@ -32,6 +34,11 @@ const ModalTime = (props) => {
       dispatch(setIsShowModalTime(true));
       if (limit > 0) {
         const timeout = setTimeout(() => {
+          if (matches === 8) {
+            clearTimeout(timeout);
+            dispatch(setResult(true));
+            return;
+          }
           dispatch(setLimit());
           clearTimeout(timeout);
         }, 1000);

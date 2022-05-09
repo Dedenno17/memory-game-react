@@ -1,4 +1,5 @@
 import ModalCard from "../UI/ModalCard";
+import elephant from "../../assets/images/smart-elephant.png";
 
 const ModalWin = (props) => {
   return (
@@ -10,7 +11,11 @@ const ModalWin = (props) => {
         <p className="text-md text-slate-800">You have paired all Cards!!</p>
       </div>
       <div className="flex-grow-2 w-full flex justify-center items-center my-4">
-        <img src="" alt="Happy Animal riding a car" className="" />
+        <img
+          src={elephant}
+          alt="astronout unicorn playing ukulele"
+          className="w-[20%]"
+        />
       </div>
       <div className="w-full flex justify-evenly">
         <button
