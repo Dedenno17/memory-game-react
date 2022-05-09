@@ -9,9 +9,12 @@ export const limitSlice = createSlice({
     setLimit: (state) => {
       state.limit = state.limit - 1;
     },
+    resetLimit: (state) => {
+      state.limit = initialStateValue;
+    },
   },
 });
 
-export const { setLimit } = limitSlice.actions;
+export const { setLimit, resetLimit } = limitSlice.actions;
 
 export default limitSlice.reducer;

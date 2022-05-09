@@ -14,13 +14,14 @@ const ModalWin = (props) => {
         <img
           src={elephant}
           alt="astronout unicorn playing ukulele"
-          className="w-[20%]"
+          className="w-[50%] md:w-[30%] lg:w-[20%]"
         />
       </div>
       <div className="w-full flex justify-evenly">
         <button
           type="button"
           className="outline-none text-sm bg-primaryGreen py-2 px-5 cursor-pointer rounded-md shadow-md text-white"
+          onClick={props.onReset}
         >
           Play Again
         </button>

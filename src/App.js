@@ -17,6 +17,9 @@ import { resetMatches } from "./features/matches";
 import { resetScores } from "./features/score";
 import { setIsShowModalStart } from "./features/isShowModalStart";
 import { setIsShowModalTime } from "./features/isShowModalTime";
+import { resetRemember } from "./features/remember";
+import { resetLimit } from "./features/limit";
+import { setResult } from "./features/result";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,16 +36,25 @@ function App() {
     (state) => state.isShowModalTime.isShowModalTime
   );
 
+  const remember = useSelector((state) => state.remember.remember);
+
   const isWin = useSelector((state) => state.result.isWin);
 
   const resetHandler = () => {
     dispatch(resetCards());
     dispatch(resetMatches());
-    dispatch(resetScores());
+    dispatch(openAllCards());
 
     const timeOut = setTimeout(() => {
       dispatch(setIsShowModalNav(false));
+      dispatch(setIsShowModalTime(true));
+      dispatch(resetRemember());
+      dispatch(resetLimit());
       dispatch(shuffleCards());
+      dispatch(setResult(false));
+      if (remember <= 0) {
+        dispatch(resetScores());
+      }
       clearTimeout(timeOut);
     }, 300);
   };
@@ -63,7 +75,7 @@ function App() {
       <MainSection onReset={resetHandler} />
       {isShowModalTime && <ModalTime />}
       {isShowModalNav && <ModalNav onReset={resetHandler} />}
-      {isWin && <ModalWin />}
+      {isWin && <ModalWin onReset={resetHandler} />}
       {isShowModalStart && <ModalStart onHide={hideModalStartHandler} />}
     </div>
   );

@@ -9,9 +9,12 @@ export const rememberSlice = createSlice({
     setRemember: (state) => {
       state.remember = state.remember - 1;
     },
+    resetRemember: (state) => {
+      state.remember = initialStateValue;
+    },
   },
 });
 
-export const { setRemember } = rememberSlice.actions;
+export const { setRemember, resetRemember } = rememberSlice.actions;
 
 export default rememberSlice.reducer;
