@@ -20,7 +20,7 @@ const MainSection = (props) => {
           <Matches className="w-full h-24 p-3 text-center text-3xl text-white" />
           <button
             type="button"
-            className="lg:w-full lg:px-4 lg:py-2 outline-none rounded-lg shadow-lg text-white bg-primaryGreen text-xl active:scale-95"
+            className="lg:w-full lg:px-4 lg:py-2 outline-none rounded-lg shadow-lg text-white bg-primaryGreen text-xl active:scale-95 hover:bg-secondaryGreen"
             onClick={() => props.onReset()}
           >
             Reset
@@ -31,7 +31,7 @@ const MainSection = (props) => {
           <Scores className="w-full h-24 p-3 text-center text-3xl text-white" />
           <button
             type="button"
-            className="lg:w-full lg:px-4 lg:py-2 outline-none rounded-lg shadow-lg text-white bg-primaryGreen text-xl active:scale-95"
+            className="lg:w-full lg:px-4 lg:py-2 outline-none rounded-lg shadow-lg text-white bg-primaryGreen text-xl active:scale-95 hover:bg-secondaryGreen"
           >
             Quit
           </button>

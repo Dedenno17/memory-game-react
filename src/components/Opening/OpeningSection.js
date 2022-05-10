@@ -18,7 +18,7 @@ const OpeningSection = (props) => {
         <div className=" w-full h-[10%] flex lg:order-4">
           <button
             type="button"
-            className="m-auto outline-none rounded-md shadow-md py-3 px-10 text-white bg-primaryGreen xl:text-2xl"
+            className="m-auto outline-none rounded-md shadow-md py-3 px-10 text-white bg-primaryGreen lg:hover:bg-secondaryGreen xl:text-2xl"
           >
             New Game
           </button>

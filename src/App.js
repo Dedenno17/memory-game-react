@@ -73,12 +73,12 @@ function App() {
 
   return (
     <div className="App">
-      <OpeningSection />
-      {/* <MainSection onReset={resetHandler} /> */}
-      {/* {isShowModalTime && <ModalTime />}
+      {/* <OpeningSection /> */}
+      <MainSection onReset={resetHandler} />
+      {isShowModalTime && <ModalTime />}
       {isShowModalNav && <ModalNav onReset={resetHandler} />}
       {isWin && <ModalWin onReset={resetHandler} />}
-      {isShowModalStart && <ModalStart onHide={hideModalStartHandler} />} */}
+      {isShowModalStart && <ModalStart onHide={hideModalStartHandler} />}
     </div>
   );
 }

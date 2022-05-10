@@ -19,7 +19,7 @@ const ModalStart = (props) => {
         </p>
         <button
           type="button"
-          className="mt-5 py-2 px-5 bg-primaryGreen rounded-md shadow-sm text-white text-sm font-semibold"
+          className="mt-5 py-2 px-5 bg-primaryGreen rounded-md shadow-sm text-white text-sm font-semibold hover:bg-secondaryGreen"
           onClick={props.onHide}
         >
           OK
