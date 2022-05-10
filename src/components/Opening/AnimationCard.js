@@ -66,8 +66,8 @@ const AnimationCard = (props) => {
   }, [cardToMatch]);
 
   return (
-    <div className="flex  w-full h-[55%] ">
-      <div className="w-3/4 h-3/4 m-auto grid grid-cols-2 grid-rows-2 bg-[rgba(0,0,0,0.3)] backdrop-blur-[5px] shadow-lg perspective-2000 md:grid-cols-4">
+    <div className="flex  w-full h-[55%] lg:order-2 lg:h-[40%]">
+      <div className="w-3/4 h-3/4 m-auto grid grid-cols-2 grid-rows-2 bg-[rgba(0,0,0,0.3)] backdrop-blur-[5px] shadow-lg perspective-2000 md:grid-cols-4 lg:h-full lg:gap-x-4 ">
         {gameCards.map((item, i) => (
           <div
             className={`relative w-full bg-[rgba(255,255,255,0.5)] preserve cursor-pointer transition-all duration-700 ease-in-out ${
