@@ -7,10 +7,7 @@ const OpeningSection = (props) => {
   const navigate = useNavigate();
 
   const newGameHandler = () => {
-    const timeout = setTimeout(() => {
-      navigate("/main");
-      clearTimeout(timeout);
-    }, 800);
+    navigate("/main");
   };
 
   return (

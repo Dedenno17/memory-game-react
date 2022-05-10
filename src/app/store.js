@@ -10,9 +10,11 @@ import isShowModalTimeReducer from "../features/isShowModalTime";
 import limitReducer from "../features/limit";
 import rememberReducer from "../features/remember";
 import resultReducer from "../features/result";
+import animationCardsReducer from "../features/animationCards";
 
 export const store = configureStore({
   reducer: {
+    animationCards: animationCardsReducer,
     gameCards: gameCardsReducer,
     isShowModalNav: isShowModalNavReducer,
     isShowModalStart: isShowModalStartReducer,

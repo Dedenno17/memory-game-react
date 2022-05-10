@@ -64,7 +64,9 @@ const MainSection = (props) => {
       {isShowModalTime && <ModalTime />}
       {isShowModalNav && <ModalNav onReset={props.onReset} />}
       {isWin && <ModalWin onReset={props.onReset} />}
-      {isShowModalStart && <ModalStart onHide={props.onHide} />}
+      {isShowModalStart && (
+        <ModalStart onHide={props.onHide} onReset={props.onReset} />
+      )}
     </div>
   );
 };

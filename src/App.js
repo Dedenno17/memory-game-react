@@ -26,11 +26,12 @@ function App() {
 
   const resetHandler = () => {
     dispatch(resetCards());
+    dispatch(setIsShowModalNav(false));
     dispatch(resetMatches());
-    dispatch(openAllCards());
+    dispatch(setIsShowModalTime(false));
 
     const timeOut = setTimeout(() => {
-      dispatch(setIsShowModalNav(false));
+      dispatch(openAllCards());
       dispatch(setIsShowModalTime(true));
       dispatch(resetRemember());
       dispatch(resetLimit());
@@ -40,7 +41,7 @@ function App() {
         dispatch(resetScores());
       }
       clearTimeout(timeOut);
-    }, 300);
+    }, 800);
   };
 
   const hideModalStartHandler = () => {
@@ -58,7 +59,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<OpeningSection />} />
+          <Route path="/" element={<OpeningSection onReset={resetHandler} />} />
           <Route
             path="/main"
             element={
