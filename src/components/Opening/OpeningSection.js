@@ -1,7 +1,18 @@
+import { useNavigate } from "react-router-dom";
+
 import bgOp from "../../assets/images/bg-op.webp";
 import AnimationCard from "./AnimationCard";
 
 const OpeningSection = (props) => {
+  const navigate = useNavigate();
+
+  const newGameHandler = () => {
+    const timeout = setTimeout(() => {
+      navigate("/main");
+      clearTimeout(timeout);
+    }, 800);
+  };
+
   return (
     <div className="relative w-full h-[100vh] overflow-hidden flex">
       <img
@@ -19,6 +30,7 @@ const OpeningSection = (props) => {
           <button
             type="button"
             className="m-auto outline-none rounded-md shadow-md py-3 px-10 text-white bg-primaryGreen lg:hover:bg-secondaryGreen xl:text-2xl"
+            onClick={newGameHandler}
           >
             New Game
           </button>

@@ -2,13 +2,10 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { useDispatch } from "react-redux";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // components
 import MainSection from "./components/Main/MainSection";
-import ModalNav from "./components/Main/ModalNav";
-import ModalStart from "./components/Main/ModalStart";
-import ModalTime from "./components/Main/ModalTime";
-import ModalWin from "./components/Main/ModalWin";
 
 import { openAllCards, resetCards } from "./features/gameCards";
 import { shuffleCards } from "./features/gameCards";
@@ -25,21 +22,7 @@ import OpeningSection from "./components/Opening/OpeningSection";
 function App() {
   const dispatch = useDispatch();
 
-  const isShowModalNav = useSelector(
-    (state) => state.isShowModalNav.isShowModalNav
-  );
-
-  const isShowModalStart = useSelector(
-    (state) => state.isShowModalStart.isShowModalStart
-  );
-
-  const isShowModalTime = useSelector(
-    (state) => state.isShowModalTime.isShowModalTime
-  );
-
   const remember = useSelector((state) => state.remember.remember);
-
-  const isWin = useSelector((state) => state.result.isWin);
 
   const resetHandler = () => {
     dispatch(resetCards());
@@ -72,14 +55,22 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {/* <OpeningSection /> */}
-      <MainSection onReset={resetHandler} />
-      {isShowModalTime && <ModalTime />}
-      {isShowModalNav && <ModalNav onReset={resetHandler} />}
-      {isWin && <ModalWin onReset={resetHandler} />}
-      {isShowModalStart && <ModalStart onHide={hideModalStartHandler} />}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<OpeningSection />} />
+          <Route
+            path="/main"
+            element={
+              <MainSection
+                onReset={resetHandler}
+                onHide={hideModalStartHandler}
+              />
+            }
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

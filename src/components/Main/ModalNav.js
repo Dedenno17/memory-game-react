@@ -1,10 +1,12 @@
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { setIsShowModalNav } from "../../features/isShowModalNav";
 import ModalCard from "../UI/ModalCard";
 
 const ModalNav = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <ModalCard className="px-3 py-5 flex flex-col justify-evenly bg-slate-200 z-50">
@@ -21,7 +23,10 @@ const ModalNav = (props) => {
         >
           Reset
         </button>
-        <button className="py-2 w-full border-b-2 border-b-primaryGreen outline-none bg-transparent text-slate-800 hover:text-slate-500">
+        <button
+          className="py-2 w-full border-b-2 border-b-primaryGreen outline-none bg-transparent text-slate-800 hover:text-slate-500"
+          onClick={() => navigate("/")}
+        >
           Quit
         </button>
       </div>
