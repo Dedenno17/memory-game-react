@@ -42,6 +42,30 @@ const AnimationCard = (props) => {
           });
         }
       }
+
+      if (screenWidth >= 768) {
+        let random = Math.round(Math.random() * (7 - 0) + 0);
+        if (cardToMatch.length !== 0) {
+          if (random === cardToMatch[0].index) {
+            if (random === 3) {
+              const newRandom = Math.round(Math.random() * (6 - 0) + 0);
+              random = newRandom;
+            }
+            random++;
+          }
+          dispatch(setHasOpened({ index: random, hasOpened: true }));
+          setCardToMatch((prevState) => {
+            const newState = { index: random, name: gameCards[random].name };
+            return [...prevState, newState];
+          });
+        } else {
+          dispatch(setHasOpened({ index: random, hasOpened: true }));
+          setCardToMatch((prevState) => {
+            const newState = { index: random, name: gameCards[random].name };
+            return [...prevState, newState];
+          });
+        }
+      }
       //   console.log("hello from effect 1");
     }, 1000);
 
