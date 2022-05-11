@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import bgOp from "../../assets/images/bg-op.webp";
 import AnimationCard from "./AnimationCard";
@@ -10,6 +10,10 @@ import { resetCards } from "../../features/gameCards";
 const OpeningSection = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const currentScore = useSelector((state) => state.scoreBoard.currentScore);
+
+  const highestScore = useSelector((state) => state.scoreBoard.highestScore);
 
   const newGameHandler = () => {
     navigate("/main");
@@ -42,10 +46,10 @@ const OpeningSection = (props) => {
         </div>
         <div className=" w-full h-[15%] flex flex-col justify-center items-center lg:order-3">
           <p className="text-lg text-slate-800 font-semibold lg:text-2xl">
-            Current Score: 20
+            Current Score: {currentScore}
           </p>
           <p className="text-lg text-slate-800 font-semibold lg:text-2xl">
-            Your Highest Score: 50
+            Your Highest Score: {highestScore}
           </p>
         </div>
         <AnimationCard />

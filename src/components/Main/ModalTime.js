@@ -7,11 +7,13 @@ import { setIsShowModalTime } from "../../features/isShowModalTime";
 import { setLimit } from "../../features/limit";
 import { setRemember } from "../../features/remember";
 import { setResult } from "../../features/result";
+import { setScoreBoard } from "../../features/scoreBoard";
 
 const ModalTime = (props) => {
   const limit = useSelector((state) => state.limit.limit);
   const remember = useSelector((state) => state.remember.remember);
   const matches = useSelector((state) => state.matches.matches);
+  const score = useSelector((state) => state.scores.scores);
 
   const dispatch = useDispatch();
 
@@ -32,10 +34,14 @@ const ModalTime = (props) => {
   useEffect(() => {
     if (remember <= 0) {
       dispatch(setIsShowModalTime(true));
+      if (limit <= 0) {
+        dispatch(setScoreBoard(score));
+      }
       if (limit > 0) {
         const timeout = setTimeout(() => {
           if (matches === 8) {
             clearTimeout(timeout);
+            dispatch(setScoreBoard(score));
             dispatch(setResult(true));
             return;
           }

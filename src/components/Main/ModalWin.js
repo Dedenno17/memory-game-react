@@ -1,16 +1,7 @@
-import { useNavigate } from "react-router-dom";
-
 import ModalCard from "../UI/ModalCard";
 import elephant from "../../assets/images/smart-elephant.png";
 
 const ModalWin = (props) => {
-  const navigate = useNavigate();
-
-  const quitGameHandler = () => {
-    props.onReset();
-    navigate("/");
-  };
-
   return (
     <ModalCard className="p-5 flex flex-col items-center bg-slate-200 w-full">
       <div className="flex-grow text-center w-full">
@@ -37,7 +28,7 @@ const ModalWin = (props) => {
         <button
           type="button"
           className="outline-none text-sm bg-red-500 py-2 cursor-pointer px-5 rounded-md shadow-md text-white hover:bg-red-700"
-          onClick={quitGameHandler}
+          onClick={props.onQuit}
         >
           Quit
         </button>

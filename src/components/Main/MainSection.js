@@ -72,7 +72,11 @@ const MainSection = (props) => {
       )}
       {isWin && <ModalWin onQuit={quitGameHandler} />}
       {isShowModalStart && (
-        <ModalStart onHide={props.onHide} onReset={props.onReset} />
+        <ModalStart
+          onHide={props.onHide}
+          onReset={props.onReset}
+          onQuit={quitGameHandler}
+        />
       )}
     </div>
   );
