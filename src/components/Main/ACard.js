@@ -20,7 +20,12 @@ const ACard = (props) => {
       id={props.id}
       onClick={() => clickHandler(props.name, props.id)}
       className={`relative w-full bg-[rgba(255,255,255,0.5)] preserve cursor-pointer transition-all duration-700 ease-in-out ${
-        limit <= 0 || limit === 60 ? "pointer-events-none" : ""
+        limit <= 0 ||
+        limit === 60 ||
+        props.hasOpened ||
+        props.cardToMatch.length === 2
+          ? "pointer-events-none"
+          : ""
       } ${props.hasOpened ? "open" : ""}`}
     >
       <img

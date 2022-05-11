@@ -39,7 +39,7 @@ const MainSection = (props) => {
       <img
         src={background}
         alt="background nature"
-        className="w-full m-auto scale-[3.5] sm:scale-[3] md:scale-[2] lg:scale-[1.5] xl:scale-[1]"
+        className="w-full m-auto scale-[3.5] sm:scale-[3] md:scale-[2] lg:scale-[1.5] xl:scale-[1.2]"
       />
       <div className="absolute top-20 right-0 left-0 bottom-0 bg-transparent lg:flex lg:justify-center lg:top-0">
         <Navbar />
@@ -70,7 +70,7 @@ const MainSection = (props) => {
       {isShowModalNav && (
         <ModalNav onReset={props.onReset} onQuit={quitGameHandler} />
       )}
-      {isWin && <ModalWin onQuit={quitGameHandler} />}
+      {isWin && <ModalWin onQuit={quitGameHandler} onReset={props.onReset} />}
       {isShowModalStart && (
         <ModalStart
           onHide={props.onHide}

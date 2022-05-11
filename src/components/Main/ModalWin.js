@@ -3,7 +3,7 @@ import elephant from "../../assets/images/smart-elephant.png";
 
 const ModalWin = (props) => {
   return (
-    <ModalCard className="p-5 flex flex-col items-center bg-slate-200 w-full">
+    <ModalCard className="p-5 flex flex-col items-center bg-slate-200 w-full h-[360px] md:h-80 lg:h-72 xl:h-[350px]">
       <div className="flex-grow text-center w-full">
         <h2 className="text-3xl text-primaryGreen font-bold mb-3">
           Congratulation!!

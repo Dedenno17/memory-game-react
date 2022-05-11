@@ -75,7 +75,7 @@ const GameCards = () => {
   }, []);
 
   return (
-    <div className="container mx-auto w-full h-[65vh] grid grid-cols-4 grid-rows-4 bg-[rgba(0,0,0,0.3)] backdrop-blur-lg perspective-2000 lg:max-w-[60%] lg:h-[100vh] lg:px-3 xl:w-[70%]">
+    <div className="container mx-auto w-full h-[65vh] grid grid-cols-4 grid-rows-4 bg-[rgba(0,0,0,0.3)] backdrop-blur-lg perspective-2000 lg:max-w-[60%] lg:h-[100vh] lg:px-3 xl:w-[75%]">
       {gameCards.map((item, i) => (
         <ACard
           key={i}
