@@ -15,6 +15,10 @@ import ModalWin from "./ModalWin";
 const MainSection = (props) => {
   const navigate = useNavigate();
 
+  // const quitGameHandler = () => {
+  //   navigate('/');
+  // };
+
   const isShowModalNav = useSelector(
     (state) => state.isShowModalNav.isShowModalNav
   );

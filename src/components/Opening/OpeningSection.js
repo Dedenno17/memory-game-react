@@ -1,13 +1,21 @@
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import bgOp from "../../assets/images/bg-op.webp";
 import AnimationCard from "./AnimationCard";
+import { setIsShowModalStart } from "../../features/isShowModalStart";
+import { setIsShowModalTime } from "../../features/isShowModalTime";
+import { resetCards } from "../../features/gameCards";
 
 const OpeningSection = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const newGameHandler = () => {
     navigate("/main");
+    dispatch(setIsShowModalTime(false));
+    dispatch(resetCards());
+    dispatch(setIsShowModalStart(true));
   };
 
   return (
