@@ -11,6 +11,7 @@ import limitReducer from "../features/limit";
 import rememberReducer from "../features/remember";
 import resultReducer from "../features/result";
 import animationCardsReducer from "../features/animationCards";
+import scoreBoardReducer from "../features/scoreBoard";
 
 export const store = configureStore({
   reducer: {
@@ -24,5 +25,6 @@ export const store = configureStore({
     remember: rememberReducer,
     result: resultReducer,
     scores: scoresReducer,
+    scoreBoard: scoreBoardReducer,
   },
 });
