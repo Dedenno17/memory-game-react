@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+// import { useEffect } from "react";
+// import useAudio from "../../hooks/useAudio";
 
 import bgOp from "../../assets/images/bg-op.webp";
 import AnimationCard from "./AnimationCard";
+// import jungleOst from "../../assets/audio/jungle-ost.mp3";
 import { setIsShowModalStart } from "../../features/isShowModalStart";
 import { setIsShowModalTime } from "../../features/isShowModalTime";
 import { resetCards } from "../../features/gameCards";
@@ -15,12 +18,21 @@ const OpeningSection = (props) => {
 
   const highestScore = useSelector((state) => state.scoreBoard.highestScore);
 
+  // const { toggle } = useAudio(jungleOst);
+  // const [audio] = useState()
+
   const newGameHandler = () => {
     navigate("/main");
     dispatch(setIsShowModalTime(false));
     dispatch(resetCards());
     dispatch(setIsShowModalStart(true));
+    // toggle();
   };
+
+  // useEffect(() => {
+  //   // toggle();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <div className="relative w-full h-[100vh] overflow-hidden flex">
@@ -54,6 +66,7 @@ const OpeningSection = (props) => {
         </div>
         <AnimationCard />
       </div>
+      {/* <audio src={jungleOst} /> */}
     </div>
   );
 };
