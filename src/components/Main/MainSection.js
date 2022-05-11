@@ -15,9 +15,10 @@ import ModalWin from "./ModalWin";
 const MainSection = (props) => {
   const navigate = useNavigate();
 
-  // const quitGameHandler = () => {
-  //   navigate('/');
-  // };
+  const quitGameHandler = () => {
+    props.onReset();
+    navigate("/");
+  };
 
   const isShowModalNav = useSelector(
     (state) => state.isShowModalNav.isShowModalNav
@@ -59,15 +60,17 @@ const MainSection = (props) => {
           <button
             type="button"
             className="lg:w-full lg:px-4 lg:py-2 outline-none rounded-lg shadow-lg text-white bg-primaryGreen text-xl active:scale-95 hover:bg-secondaryGreen"
-            onClick={() => navigate("/")}
+            onClick={quitGameHandler}
           >
             Quit
           </button>
         </div>
       </div>
       {isShowModalTime && <ModalTime />}
-      {isShowModalNav && <ModalNav onReset={props.onReset} />}
-      {isWin && <ModalWin onReset={props.onReset} />}
+      {isShowModalNav && (
+        <ModalNav onReset={props.onReset} onQuit={quitGameHandler} />
+      )}
+      {isWin && <ModalWin onQuit={quitGameHandler} />}
       {isShowModalStart && (
         <ModalStart onHide={props.onHide} onReset={props.onReset} />
       )}
