@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -7,6 +8,7 @@ import click from "../../assets/audio/click-sound.wav";
 import { setIsShowModalStart } from "../../features/isShowModalStart";
 import { setIsShowModalTime } from "../../features/isShowModalTime";
 import { resetCards } from "../../features/gameCards";
+import { resetAnimationCards } from "../../features/animationCards";
 
 const OpeningSection = (props) => {
   const navigate = useNavigate();
@@ -15,14 +17,22 @@ const OpeningSection = (props) => {
   const currentScore = useSelector((state) => state.scoreBoard.currentScore);
   const highestScore = useSelector((state) => state.scoreBoard.highestScore);
 
+  const [cardToMatch, setCardToMatch] = useState([]);
+
   const audioClick = new Audio(click);
 
   const newGameHandler = () => {
     audioClick.play();
+    setCardToMatch([]);
+    dispatch(resetAnimationCards());
     navigate("/main");
     dispatch(setIsShowModalTime(false));
     dispatch(resetCards());
     dispatch(setIsShowModalStart(true));
+  };
+
+  const changeCardToMatch = (payload) => {
+    setCardToMatch(payload);
   };
 
   return (
@@ -55,7 +65,10 @@ const OpeningSection = (props) => {
             Your Highest Score: {highestScore}
           </p>
         </div>
-        <AnimationCard />
+        <AnimationCard
+          onChangeCardtoMatch={changeCardToMatch}
+          cardToMatch={cardToMatch}
+        />
       </div>
     </div>
   );
