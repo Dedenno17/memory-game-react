@@ -19,6 +19,7 @@ import { resetLimit } from "./features/limit";
 import { setResult } from "./features/result";
 import OpeningSection from "./components/Opening/OpeningSection";
 import flipCard from "./assets/audio/page-flip.wav";
+import clickSound from "./assets/audio/click-sound.wav";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
   const remember = useSelector((state) => state.remember.remember);
 
   const audioFlipCard = new Audio(flipCard);
+  const audioClickSound = new Audio(clickSound);
 
   const resetHandler = () => {
     dispatch(resetCards());
@@ -49,6 +51,7 @@ function App() {
   };
 
   const hideModalStartHandler = () => {
+    audioClickSound.play();
     dispatch(setIsShowModalStart(false));
     audioFlipCard.play();
     dispatch(openAllCards());

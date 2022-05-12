@@ -21,7 +21,7 @@ const MainSection = (props) => {
   const audioClick = new Audio(click);
 
   const audioBg = new Audio(jungleOst);
-  audioBg.volume = 0.5;
+  audioBg.volume = 0.3;
   audioBg.loop = true;
 
   const quitGameHandler = () => {
@@ -52,7 +52,7 @@ const MainSection = (props) => {
   const isWin = useSelector((state) => state.result.isWin);
 
   useEffect(() => {
-    audioBg.pause();
+    audioBg.play();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

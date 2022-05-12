@@ -19,8 +19,8 @@ const OpeningSection = (props) => {
   const audioClick = new Audio(click);
 
   const audioBg = new Audio(jungleOst);
-  audioBg.volume = 0.5;
-  audioBg.autoplay = false;
+  audioBg.volume = 0.3;
+  audioBg.autoplay = true;
   audioBg.loop = true;
 
   const newGameHandler = () => {
