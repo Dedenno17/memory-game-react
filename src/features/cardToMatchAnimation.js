@@ -6,12 +6,19 @@ export const cardsToMatchSlice = createSlice({
   name: "cardsToMatch",
   initialState: initialStateValue,
   reducers: {
+    resetCardsToMatch: (state) => {
+      state.cardsToMatch = [];
+    },
     setCardsToMatch: (state, action) => {
-      state.cardsToMatch = action.payload;
+      const newState = {
+        index: action.payload.randomValue,
+        name: action.payload.name,
+      };
+      state.cardsToMatch = [...state.cardsToMatch, newState];
     },
   },
 });
 
-export const { setCardsToMatch } = cardsToMatchSlice.actions;
+export const { setCardsToMatch, resetCardsToMatch } = cardsToMatchSlice.actions;
 
 export default cardsToMatchSlice.reducer;

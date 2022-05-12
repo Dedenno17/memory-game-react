@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import bgCard from "../../assets/images/back.jpg";
 import { setHasOpenedCard } from "../../features/animationCards";
-import { setCardsToMatch } from "../../features/cardToMatchAnimation";
+import {
+  setCardsToMatch,
+  resetCardsToMatch,
+} from "../../features/cardToMatchAnimation";
 
 const AnimationCard = (props) => {
   const animationCards = useSelector((state) => state.animationCards.cards);
@@ -18,7 +21,7 @@ const AnimationCard = (props) => {
   useEffect(() => {
     setTimeout(() => {
       if (cardsToMatch.length >= 2) {
-        dispatch(setCardsToMatch([]));
+        dispatch(resetCardsToMatch());
         dispatch(
           setHasOpenedCard({
             index: cardsToMatch[0].index,
@@ -45,23 +48,17 @@ const AnimationCard = (props) => {
           }
           dispatch(setHasOpenedCard({ index: random, hasOpened: true }));
           dispatch(
-            setCardsToMatch((prevState) => {
-              const newState = {
-                index: random,
-                name: animationCards[random].name,
-              };
-              return [...prevState, newState];
+            setCardsToMatch({
+              name: animationCards[random].name,
+              randomValue: random,
             })
           );
         } else {
           dispatch(setHasOpenedCard({ index: random, hasOpened: true }));
           dispatch(
-            setCardsToMatch((prevState) => {
-              const newState = {
-                index: random,
-                name: animationCards[random].name,
-              };
-              return [...prevState, newState];
+            setCardsToMatch({
+              name: animationCards[random].name,
+              randomValue: random,
             })
           );
         }
@@ -79,23 +76,17 @@ const AnimationCard = (props) => {
           }
           dispatch(setHasOpenedCard({ index: random, hasOpened: true }));
           dispatch(
-            setCardsToMatch((prevState) => {
-              const newState = {
-                index: random,
-                name: animationCards[random].name,
-              };
-              return [...prevState, newState];
+            setCardsToMatch({
+              name: animationCards[random].name,
+              randomValue: random,
             })
           );
         } else {
           dispatch(setHasOpenedCard({ index: random, hasOpened: true }));
           dispatch(
-            setCardsToMatch((prevState) => {
-              const newState = {
-                index: random,
-                name: animationCards[random].name,
-              };
-              return [...prevState, newState];
+            setCardsToMatch({
+              name: animationCards[random].name,
+              randomValue: random,
             })
           );
         }
