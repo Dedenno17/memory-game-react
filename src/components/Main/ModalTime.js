@@ -9,6 +9,7 @@ import { setRemember } from "../../features/remember";
 import { setResult } from "../../features/result";
 import { setScoreBoard } from "../../features/scoreBoard";
 import flipCard from "../../assets/audio/page-flip.wav";
+import winSound from "../../assets/audio/ta-da.wav";
 
 const ModalTime = (props) => {
   const limit = useSelector((state) => state.limit.limit);
@@ -19,6 +20,7 @@ const ModalTime = (props) => {
   const dispatch = useDispatch();
 
   const audioFlipCard = new Audio(flipCard);
+  const audioWinSound = new Audio(winSound);
 
   useEffect(() => {
     if (remember <= 0) {
@@ -44,6 +46,8 @@ const ModalTime = (props) => {
       if (limit > 0) {
         const timeout = setTimeout(() => {
           if (matches === 8) {
+            props.onStopAudioBg();
+            audioWinSound.play();
             clearTimeout(timeout);
             dispatch(setScoreBoard(score));
             dispatch(setResult(true));

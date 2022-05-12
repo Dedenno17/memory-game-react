@@ -10,7 +10,7 @@ const ModalNav = (props) => {
     <ModalCard className="px-3 py-5 flex flex-col justify-evenly bg-slate-200 z-50">
       <div className="relative w-full h-full">
         <span
-          className="flex justify-center items-center absolute text-sm text-center w-7 h-7 text-white border-white border-2 bg-red-500 p-4 -top-7 -right-5 rounded-full"
+          className="flex justify-center items-center absolute text-sm text-center w-7 h-7 text-white border-white border-2 bg-red-500 p-4 -top-7 -right-5 rounded-full cursor-pointer"
           onClick={() => dispatch(setIsShowModalNav(false))}
         >
           X

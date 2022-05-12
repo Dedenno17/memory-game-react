@@ -2,6 +2,11 @@ import ModalCard from "../UI/ModalCard";
 import elephant from "../../assets/images/smart-elephant.png";
 
 const ModalWin = (props) => {
+  const playAgainHandler = () => {
+    props.onPlayAudioBg();
+    props.onReset();
+  };
+
   return (
     <ModalCard className="p-5 flex flex-col items-center bg-slate-200 w-full h-[360px] md:h-80 lg:h-72 xl:h-[350px]">
       <div className="flex-grow text-center w-full">
@@ -21,7 +26,7 @@ const ModalWin = (props) => {
         <button
           type="button"
           className="outline-none text-sm bg-primaryGreen py-2 px-5 cursor-pointer rounded-md shadow-md text-white hover:bg-secondaryGreen"
-          onClick={props.onReset}
+          onClick={playAgainHandler}
         >
           Play Again
         </button>

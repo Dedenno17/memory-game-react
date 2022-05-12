@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import bgOp from "../../assets/images/bg-op.webp";
 import AnimationCard from "./AnimationCard";
-import jungleOst from "../../assets/audio/jungle-ost.mp3";
 import click from "../../assets/audio/click-sound.wav";
 import { setIsShowModalStart } from "../../features/isShowModalStart";
 import { setIsShowModalTime } from "../../features/isShowModalTime";
@@ -18,15 +17,8 @@ const OpeningSection = (props) => {
 
   const audioClick = new Audio(click);
 
-  const audioBg = new Audio(jungleOst);
-  audioBg.volume = 0.3;
-  audioBg.autoplay = true;
-  audioBg.loop = true;
-
   const newGameHandler = () => {
     audioClick.play();
-    audioBg.pause();
-    audioBg.currentTime = 0;
     navigate("/main");
     dispatch(setIsShowModalTime(false));
     dispatch(resetCards());

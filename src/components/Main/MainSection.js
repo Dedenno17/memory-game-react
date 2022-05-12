@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -13,21 +14,22 @@ import ModalNav from "./ModalNav";
 import ModalStart from "./ModalStart";
 import ModalTime from "./ModalTime";
 import ModalWin from "./ModalWin";
-import { useEffect } from "react";
 
 const MainSection = (props) => {
   const navigate = useNavigate();
 
   const audioClick = new Audio(click);
 
-  const audioBg = new Audio(jungleOst);
-  audioBg.volume = 0.3;
-  audioBg.loop = true;
+  const [isPlayingAudioBg, setIsPlayingAudioBg] = useState(true);
+  const audioBgPlayerRef = useRef();
+
+  const toggleAudioBgHandler = () => {
+    setIsPlayingAudioBg((prevState) => !prevState);
+  };
 
   const quitGameHandler = () => {
     audioClick.play();
-    audioBg.pause();
-    audioBg.currentTime = 0;
+    toggleAudioBgHandler();
     props.onReset();
     navigate("/");
   };
@@ -52,13 +54,23 @@ const MainSection = (props) => {
   const isWin = useSelector((state) => state.result.isWin);
 
   useEffect(() => {
-    audioBg.play();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (isPlayingAudioBg) {
+      audioBgPlayerRef.current.play();
+    } else {
+      audioBgPlayerRef.current.pause();
+      audioBgPlayerRef.current.currentTime = 0;
+    }
+  }, [isPlayingAudioBg]);
 
   return (
     <div className="relative flex w-full h-[100vh] overflow-hidden">
+      <audio
+        ref={audioBgPlayerRef}
+        src={jungleOst}
+        muted={false}
+        autoPlay={false}
+        loop={true}
+      />
       <img
         src={background}
         alt="background nature"
@@ -89,11 +101,17 @@ const MainSection = (props) => {
           </button>
         </div>
       </div>
-      {isShowModalTime && <ModalTime />}
+      {isShowModalTime && <ModalTime onStopAudioBg={toggleAudioBgHandler} />}
       {isShowModalNav && (
         <ModalNav onReset={resetHandler} onQuit={quitGameHandler} />
       )}
-      {isWin && <ModalWin onQuit={quitGameHandler} onReset={resetHandler} />}
+      {isWin && (
+        <ModalWin
+          onQuit={quitGameHandler}
+          onPlayAudioBg={toggleAudioBgHandler}
+          onReset={resetHandler}
+        />
+      )}
       {isShowModalStart && (
         <ModalStart
           onHide={props.onHide}
