@@ -1,11 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { useEffect } from "react";
-// import useAudio from "../../hooks/useAudio";
 
 import bgOp from "../../assets/images/bg-op.webp";
 import AnimationCard from "./AnimationCard";
-// import jungleOst from "../../assets/audio/jungle-ost.mp3";
+import jungleOst from "../../assets/audio/jungle-ost.mp3";
+import click from "../../assets/audio/click-sound.wav";
 import { setIsShowModalStart } from "../../features/isShowModalStart";
 import { setIsShowModalTime } from "../../features/isShowModalTime";
 import { resetCards } from "../../features/gameCards";
@@ -15,24 +14,24 @@ const OpeningSection = (props) => {
   const dispatch = useDispatch();
 
   const currentScore = useSelector((state) => state.scoreBoard.currentScore);
-
   const highestScore = useSelector((state) => state.scoreBoard.highestScore);
 
-  // const { toggle } = useAudio(jungleOst);
-  // const [audio] = useState()
+  const audioClick = new Audio(click);
+
+  const audioBg = new Audio(jungleOst);
+  audioBg.volume = 0.5;
+  audioBg.autoplay = true;
+  audioBg.loop = true;
 
   const newGameHandler = () => {
+    audioClick.play();
+    audioBg.pause();
+    audioBg.currentTime = 0;
     navigate("/main");
     dispatch(setIsShowModalTime(false));
     dispatch(resetCards());
     dispatch(setIsShowModalStart(true));
-    // toggle();
   };
-
-  // useEffect(() => {
-  //   // toggle();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   return (
     <div className="relative w-full h-[100vh] overflow-hidden flex">
@@ -66,7 +65,6 @@ const OpeningSection = (props) => {
         </div>
         <AnimationCard />
       </div>
-      {/* <audio src={jungleOst} /> */}
     </div>
   );
 };
