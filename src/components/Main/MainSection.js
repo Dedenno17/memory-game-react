@@ -52,7 +52,7 @@ const MainSection = (props) => {
   const isWin = useSelector((state) => state.result.isWin);
 
   useEffect(() => {
-    audioBg.play();
+    audioBg.pause();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

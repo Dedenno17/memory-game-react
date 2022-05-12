@@ -6,7 +6,6 @@ const ACard = (props) => {
 
   const clickHandler = (cardName, index) => {
     if (props.hasClickedCards >= 2) {
-      console.log("stop");
       return;
     }
 

@@ -6,6 +6,9 @@ import { shuffleCards } from "../../features/gameCards";
 import { incrementScores } from "../../features/score";
 import { incrementMatches } from "../../features/matches";
 import ACard from "./ACard";
+import clickSound from "../../assets/audio/click-sound.wav";
+import cardFlip from "../../assets/audio/page-flip.wav";
+import rightAnswer from "../../assets/audio/right-answer.wav";
 
 const GameCards = () => {
   const gameCards = useSelector((state) => state.gameCards.gameCards);
@@ -15,7 +18,14 @@ const GameCards = () => {
 
   const dispatch = useDispatch();
 
+  const audioClick = new Audio(clickSound);
+  const audioCardFlip = new Audio(cardFlip);
+  const audioRightAnswer = new Audio(rightAnswer);
+
   const changeHasClickedCards = () => {
+    audioClick.play();
+    audioCardFlip.play();
+
     setHasClickedCards((prevState) => {
       if (prevState === null) {
         return (prevState = 1);
@@ -43,6 +53,7 @@ const GameCards = () => {
     const timeOut = setTimeout(() => {
       if (hasClickedCards === 2) {
         if (cardToMatch[0].name === cardToMatch[1].name) {
+          audioRightAnswer.play();
           dispatch(incrementMatches());
           dispatch(incrementScores());
           setHasClickedCards(null);
