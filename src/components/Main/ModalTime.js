@@ -24,10 +24,10 @@ const ModalTime = (props) => {
   audioWinSound.volume = 0.2;
 
   useEffect(() => {
+    dispatch(setIsShowModalTime(true));
     if (remember <= 0) {
       dispatch(resetCards());
       audioFlipCard.play();
-      dispatch(setIsShowModalTime(false));
     }
     if (remember > 0) {
       const timeout = setTimeout(() => {
@@ -40,7 +40,6 @@ const ModalTime = (props) => {
 
   useEffect(() => {
     if (remember <= 0) {
-      dispatch(setIsShowModalTime(true));
       if (limit <= 0) {
         dispatch(setScoreBoard(score));
       }
