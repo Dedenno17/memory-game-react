@@ -68,7 +68,7 @@ const AnimationCard = (props) => {
         let random = Math.round(Math.random() * (7 - 0) + 0);
         if (cardsToMatch.length !== 0) {
           if (random === cardsToMatch[0].index) {
-            if (random === 3) {
+            if (random === 7) {
               const newRandom = Math.round(Math.random() * (6 - 0) + 0);
               random = newRandom;
             }
