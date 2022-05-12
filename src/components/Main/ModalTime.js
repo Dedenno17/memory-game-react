@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { resetCards } from "../../features/gameCards";
-import { setIsShowModalTime } from "../../features/isShowModalTime";
 
 import { setLimit } from "../../features/limit";
 import { setRemember } from "../../features/remember";
@@ -24,7 +23,6 @@ const ModalTime = (props) => {
   audioWinSound.volume = 0.2;
 
   useEffect(() => {
-    dispatch(setIsShowModalTime(true));
     if (remember <= 0) {
       dispatch(resetCards());
       audioFlipCard.play();
