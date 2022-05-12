@@ -21,6 +21,7 @@ const ModalTime = (props) => {
 
   const audioFlipCard = new Audio(flipCard);
   const audioWinSound = new Audio(winSound);
+  audioWinSound.volume = 0.2;
 
   useEffect(() => {
     if (remember <= 0) {

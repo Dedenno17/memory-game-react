@@ -54,6 +54,7 @@ const MainSection = (props) => {
   const isWin = useSelector((state) => state.result.isWin);
 
   useEffect(() => {
+    audioBgPlayerRef.current.volume = 0.1;
     if (isPlayingAudioBg) {
       audioBgPlayerRef.current.play();
     } else {
