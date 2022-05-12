@@ -3,9 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import bgCard from "../../assets/images/back.jpg";
 import { setHasOpenedCard } from "../../features/animationCards";
+import { setCardsToMatch } from "../../features/cardToMatchAnimation";
 
 const AnimationCard = (props) => {
   const animationCards = useSelector((state) => state.animationCards.cards);
+  const cardsToMatch = useSelector(
+    (state) => state.cardToMatchAnimation.cardsToMatch
+  );
 
   const dispatch = useDispatch();
 
@@ -13,17 +17,17 @@ const AnimationCard = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (props.cardToMatch.length >= 2) {
-        props.onChangeCardtoMatch([]);
+      if (cardsToMatch.length >= 2) {
+        dispatch(setCardsToMatch([]));
         dispatch(
           setHasOpenedCard({
-            index: props.cardToMatch[0].index,
+            index: cardsToMatch[0].index,
             hasOpened: false,
           })
         );
         dispatch(
           setHasOpenedCard({
-            index: props.cardToMatch[1].index,
+            index: cardsToMatch[1].index,
             hasOpened: false,
           })
         );
@@ -31,8 +35,8 @@ const AnimationCard = (props) => {
       }
       if (screenWidth >= 375 && screenWidth < 768) {
         let random = Math.round(Math.random() * (3 - 0) + 0);
-        if (props.cardToMatch.length !== 0) {
-          if (random === props.cardToMatch[0].index) {
+        if (cardsToMatch.length !== 0) {
+          if (random === cardsToMatch[0].index) {
             if (random === 3) {
               const newRandom = Math.round(Math.random() * (2 - 0) + 0);
               random = newRandom;
@@ -40,29 +44,33 @@ const AnimationCard = (props) => {
             random++;
           }
           dispatch(setHasOpenedCard({ index: random, hasOpened: true }));
-          props.onChangeCardtoMatch((prevState) => {
-            const newState = {
-              index: random,
-              name: animationCards[random].name,
-            };
-            return [...prevState, newState];
-          });
+          dispatch(
+            setCardsToMatch((prevState) => {
+              const newState = {
+                index: random,
+                name: animationCards[random].name,
+              };
+              return [...prevState, newState];
+            })
+          );
         } else {
           dispatch(setHasOpenedCard({ index: random, hasOpened: true }));
-          props.onChangeCardtoMatch((prevState) => {
-            const newState = {
-              index: random,
-              name: animationCards[random].name,
-            };
-            return [...prevState, newState];
-          });
+          dispatch(
+            setCardsToMatch((prevState) => {
+              const newState = {
+                index: random,
+                name: animationCards[random].name,
+              };
+              return [...prevState, newState];
+            })
+          );
         }
       }
 
       if (screenWidth >= 768) {
         let random = Math.round(Math.random() * (7 - 0) + 0);
-        if (props.cardToMatch.length !== 0) {
-          if (random === props.cardToMatch[0].index) {
+        if (cardsToMatch.length !== 0) {
+          if (random === cardsToMatch[0].index) {
             if (random === 3) {
               const newRandom = Math.round(Math.random() * (6 - 0) + 0);
               random = newRandom;
@@ -70,45 +78,32 @@ const AnimationCard = (props) => {
             random++;
           }
           dispatch(setHasOpenedCard({ index: random, hasOpened: true }));
-          props.onChangeCardtoMatch((prevState) => {
-            const newState = {
-              index: random,
-              name: animationCards[random].name,
-            };
-            return [...prevState, newState];
-          });
+          dispatch(
+            setCardsToMatch((prevState) => {
+              const newState = {
+                index: random,
+                name: animationCards[random].name,
+              };
+              return [...prevState, newState];
+            })
+          );
         } else {
           dispatch(setHasOpenedCard({ index: random, hasOpened: true }));
-          props.onChangeCardtoMatch((prevState) => {
-            const newState = {
-              index: random,
-              name: animationCards[random].name,
-            };
-            return [...prevState, newState];
-          });
+          dispatch(
+            setCardsToMatch((prevState) => {
+              const newState = {
+                index: random,
+                name: animationCards[random].name,
+              };
+              return [...prevState, newState];
+            })
+          );
         }
       }
     }, 1000);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.cardToMatch]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     if (cardToMatch.length >= 2) {
-  //       // console.log(cardToMatch);
-  //       setCardToMatch([]);
-  //       dispatch(
-  //         setHasOpenedCard({ index: cardToMatch[0].index, hasOpened: false })
-  //       );
-  //       dispatch(
-  //         setHasOpenedCard({ index: cardToMatch[1].index, hasOpened: false })
-  //       );
-  //     }
-  //   }, 1000);
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [cardToMatch]);
+  }, [cardsToMatch]);
 
   return (
     <div className="flex  w-full h-[55%] lg:order-2 lg:h-[40%] xl:h-[45%]">

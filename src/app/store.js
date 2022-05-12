@@ -12,10 +12,12 @@ import rememberReducer from "../features/remember";
 import resultReducer from "../features/result";
 import animationCardsReducer from "../features/animationCards";
 import scoreBoardReducer from "../features/scoreBoard";
+import cardToMatchAnimationReducer from "../features/cardToMatchAnimation";
 
 export const store = configureStore({
   reducer: {
     animationCards: animationCardsReducer,
+    cardToMatchAnimation: cardToMatchAnimationReducer,
     gameCards: gameCardsReducer,
     isShowModalNav: isShowModalNavReducer,
     isShowModalStart: isShowModalStartReducer,

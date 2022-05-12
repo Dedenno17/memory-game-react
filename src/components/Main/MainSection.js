@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import GameCards from "./GameCards";
 import ScoreAndMatches from "./ScoreAndMatches";
@@ -14,9 +14,12 @@ import ModalNav from "./ModalNav";
 import ModalStart from "./ModalStart";
 import ModalTime from "./ModalTime";
 import ModalWin from "./ModalWin";
+import { resetAnimationCards } from "../../features/animationCards";
+import { setCardsToMatch } from "../../features/cardToMatchAnimation";
 
 const MainSection = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const audioClick = new Audio(click);
 
@@ -31,6 +34,8 @@ const MainSection = (props) => {
     audioClick.play();
     toggleAudioBgHandler();
     props.onReset();
+    dispatch(resetAnimationCards());
+    dispatch(setCardsToMatch([]));
     navigate("/");
   };
 
