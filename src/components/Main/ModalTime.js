@@ -8,6 +8,7 @@ import { setLimit } from "../../features/limit";
 import { setRemember } from "../../features/remember";
 import { setResult } from "../../features/result";
 import { setScoreBoard } from "../../features/scoreBoard";
+import flipCard from "../../assets/audio/page-flip.wav";
 
 const ModalTime = (props) => {
   const limit = useSelector((state) => state.limit.limit);
@@ -17,9 +18,12 @@ const ModalTime = (props) => {
 
   const dispatch = useDispatch();
 
+  const audioFlipCard = new Audio(flipCard);
+
   useEffect(() => {
     if (remember <= 0) {
       dispatch(resetCards());
+      audioFlipCard.play();
       dispatch(setIsShowModalTime(false));
     }
     if (remember > 0) {

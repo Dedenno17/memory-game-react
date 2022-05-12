@@ -18,11 +18,14 @@ import { resetRemember } from "./features/remember";
 import { resetLimit } from "./features/limit";
 import { setResult } from "./features/result";
 import OpeningSection from "./components/Opening/OpeningSection";
+import flipCard from "./assets/audio/page-flip.wav";
 
 function App() {
   const dispatch = useDispatch();
 
   const remember = useSelector((state) => state.remember.remember);
+
+  const audioFlipCard = new Audio(flipCard);
 
   const resetHandler = () => {
     dispatch(resetCards());
@@ -31,6 +34,7 @@ function App() {
     dispatch(setIsShowModalTime(false));
 
     const timeOut = setTimeout(() => {
+      audioFlipCard.play();
       dispatch(openAllCards());
       dispatch(setIsShowModalTime(true));
       dispatch(resetRemember());
@@ -46,6 +50,7 @@ function App() {
 
   const hideModalStartHandler = () => {
     dispatch(setIsShowModalStart(false));
+    audioFlipCard.play();
     dispatch(openAllCards());
     dispatch(setIsShowModalTime(true));
   };
