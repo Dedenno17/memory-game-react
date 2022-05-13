@@ -98,7 +98,7 @@ const AnimationCard = (props) => {
 
   return (
     <div className="flex  w-full h-[55%] lg:order-2 lg:h-[40%] xl:h-[45%]">
-      <div className="w-3/4 h-3/4 m-auto grid grid-cols-2 grid-rows-2 bg-[rgba(0,0,0,0.3)] backdrop-blur-[5px] shadow-lg perspective-2000 md:grid-cols-4 lg:h-full lg:gap-x-4 ">
+      <div className="w-3/4 h-3/4 m-auto grid grid-cols-2 grid-rows-2 bg-[rgba(0,0,0,0.3)] backdrop-blur-[5px] shadow-lg perspective-2000 md:grid-cols-4 lg:h-full lg:gap-x-4 pointer-events-none">
         {animationCards.map((item, i) => (
           <div
             className={`relative w-full bg-[rgba(255,255,255,0.5)] preserve cursor-pointer transition-all duration-700 ease-in-out ${
@@ -109,12 +109,12 @@ const AnimationCard = (props) => {
             <img
               src={item.img}
               alt="animal card"
-              className="w-full h-full absolute pointer-events-none"
+              className="w-full h-full absolute"
             />
             <img
               src={bgCard}
               alt="back card"
-              className="w-full h-full absolute pointer-events-none backface-hidden"
+              className="w-full h-full absolute backface-hidden"
             />
           </div>
         ))}

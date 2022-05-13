@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import bgOp from "../../assets/images/bg-op.webp";
+// import bgOp from "../../assets/images/bg-op.webp";
 import AnimationCard from "./AnimationCard";
 import click from "../../assets/audio/click-sound.wav";
 import { setIsShowModalStart } from "../../features/isShowModalStart";
@@ -26,12 +26,12 @@ const OpeningSection = (props) => {
   };
 
   return (
-    <div className="relative w-full h-[100vh] overflow-hidden flex">
-      <img
+    <div className="relative w-full h-[100vh] overflow-hidden flex bg-gradient-to-b from-[#05e8ba] to-teal-700">
+      {/* <img
         src={bgOp}
         alt="background grass and trees"
         className="w-full m-auto scale-[3.5] sm:scale-[3] md:scale-[2] lg:scale-[1.5] xl:scale-[1.2] brightness-75"
-      />
+      /> */}
       <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center">
         <div className=" w-full h-[20%] flex lg:order-1">
           <h1 className="text-3xl m-auto font-bold text-red-700 lg:text-5xl">
